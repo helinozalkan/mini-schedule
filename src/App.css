@@ -50,13 +50,11 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* İçeriği yatayda ortala */
+  justify-content: center; /* İçeriği dikeyde ortala */
   width: calc(100% - 250px); /* Sidebar'ı hesaba katarak genişliği ayarla */
-  overflow-y: auto; /* İçeriğin taşmasını engelle */
   height: 100vh; /* Tüm ekranı kaplaması için */
   background: #f0f0f0; /* Ana içerik için arka plan */
-  margin-left: 300px;
-  margin-right: 300px;
 }
 
 .header {
@@ -220,6 +218,79 @@
   font-size: 14px;
 }
 
+
+.add-button {
+  width: 100px;
+  height: 100px;
+  margin: 15px auto; /* Butonu ortalar */
+  margin-top: 40px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 100px;
+  display: block; /* Ortalamak için blok yap */
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  height: 350px; /* Form yüksekliği büyütüldü */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 90%; /* Genişlik artırıldı */
+  padding: 12px; /* İç boşluk artırıldı */
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px; /* Yazı boyutu büyütüldü */
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 90%; /* Butonları geniş form alanına uygun hale getirir */
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  width: 45%; /* Buton genişlikleri ayarlandı */
+  padding: 10px;
+  background-color: #28a745; /* Yeşil renk */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-buttons button:hover {
+  background-color: #218838; /* Daha koyu yeşil hover efekti */
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin: 5px 0;
+}
 
 
 
