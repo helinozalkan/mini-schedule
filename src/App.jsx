@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom"; // Router ve Link import ediliyor
 import Select from "react-select";
 import { AiOutlineHome, AiOutlineSetting } from "react-icons/ai";
-import ButtonImage from "./assets/greenPlus.png"; 
+import ButtonImage from "./assets/greenPlus2.jpg"; 
 import "./App.css";
 
 // Sayfa bileşenlerini oluşturuyoruz
@@ -77,8 +77,9 @@ const DepolarPage = () => {
   ]);
 
   const [showForm, setShowForm] = useState(false);
+  const [showOptionsForm, setShowOptionsForm] = useState(false);
   const [newDepo, setNewDepo] = useState({ name: "", location: "", capacity: "" });
-  const [errors, setErrors] = useState({}); // Hata mesajları için state
+  const [errors, setErrors] = useState({});
 
   const validateForm = () => {
     const errors = {};
@@ -101,11 +102,11 @@ const DepolarPage = () => {
     }
 
     setErrors(errors);
-    return Object.keys(errors).length === 0; // Eğer hata yoksa true döner
+    return Object.keys(errors).length === 0;
   };
 
   const handleAddDepo = () => {
-    if (!validateForm()) return; // Form geçerli değilse işlem yapılmaz
+    if (!validateForm()) return;
 
     setDepolar([
       ...depolar,
@@ -126,17 +127,31 @@ const DepolarPage = () => {
     depo.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
     depo.capacity.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  
+
+  const handleOptionSelect = (option) => {
+    alert(`${option} işlemi seçildi.`);
+    setShowOptionsForm(false);
+  };
 
   return (
     <div className="depot-page">
       <h2>Depoları Görüntüle</h2>
-      <input
-        type="text"
-        placeholder="Depo,Bölüm veya Depo Sahibi ara..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-input"
-      />
+      <div className="search-and-edit">
+        <input
+          type="text"
+          placeholder="Depo, Bölüm veya Depo Sahibi ara..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+        <button
+          className="edit-button"
+          onClick={() => setShowOptionsForm(true)}
+        >
+          Depoları Düzenle
+        </button>
+      </div>
 
       <div className="depot-cards">
         {filteredDepolar.length > 0 ? (
@@ -193,10 +208,35 @@ const DepolarPage = () => {
           </div>
         </div>
       )}
+
+      {showOptionsForm && (
+        <div className="form-overlay">
+          <div className="form-container">
+            <h3>Depoları Düzenle</h3>
+            <button
+              className="option-button"
+              onClick={() => handleOptionSelect("Depo Sil")}
+            >
+              Depo Sil
+            </button>
+            <button
+              className="option-button"
+              onClick={() => handleOptionSelect("Depo Bilgilerini Güncelle")}
+            >
+              Depo Bilgilerini Güncelle
+            </button>
+            <button
+              className="close-button"
+              onClick={() => setShowOptionsForm(false)}
+            >
+              Kapat
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
 
 const App = () => {
   return (

@@ -226,8 +226,15 @@
   margin-top: 40px;
   margin-left: 5px;
   cursor: pointer;
-  border-radius: 100px;
+  border-radius: 300px;
   display: block; /* Ortalamak için blok yap */
+  transition: transform 0.3s ease; /* Geçiş efekti ekleniyor */
+
+}
+.add-button:hover {
+  background-color: #41bd5e;
+  transform: scale(1.1); /* Buton %10 büyür */
+
 }
 
 .form-overlay {
@@ -291,6 +298,165 @@ input {
   font-size: 12px;
   margin: 5px 0;
 }
+
+.search-and-edit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-button {
+  padding: 10px 20px;
+  background-color: #41bd5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Geçiş efekti ekleniyor */
+
+}
+
+.edit-button:hover {
+  background-color: #41bd5e;
+  transform: scale(1.1); /* Buton %10 büyür */
+
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.option-button {
+  margin: 10px 0;
+  padding: 8px 10px;
+  background-color: #41bd5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 90%;
+  transition: transform 0.3s ease; /* Geçiş efekti ekleniyor */
+}
+
+.option-button:hover {
+  background-color: #41bd5e;
+  transform: scale(1.1); /* Buton %10 büyür */
+
+}
+
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: black;
+  box-shadow: 0 0 50px rgba(56, 163, 62, 0.1);
+
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #e7dfdf;
+}
+/* Kimlik doğrulama modal'ı */
+.auth-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Kimlik doğrulama formu */
+.auth-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+/* Kullanıcı adı ve şifre alanları */
+.auth-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Hata mesajları */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Giriş yap butonu */
+.auth-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #41bd5e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #38a254;
+}
+
+/* Kapat butonu */
+.auth-close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.auth-close-button:hover {
+  background-color: #e7dfdf;
+}
+
+
 
 
 
